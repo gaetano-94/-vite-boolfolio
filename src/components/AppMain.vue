@@ -5,7 +5,11 @@ export default {
 </script>
 
 <template>
-  <main></main>
+  <main>
+    <div class="container py-3 text-uppercase">
+      <h1 class="text-center">Elenco dei Progetti</h1>
+    </div>
+  </main>
 </template>
 
 <style scoped lang="scss"></style>
