@@ -26,7 +26,7 @@ export default {
         .get(this.baseUrl + this.apiUrl.projects)
         .then((response) => {
           console.log(response);
-          this.projects = response.data.data;
+          this.projects = response.data.data.data;
         })
         .catch((error) => {
           console.log(error);
