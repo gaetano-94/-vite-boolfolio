@@ -4,6 +4,11 @@ export default {
   props: {
     project: Object,
   },
+  computed: {
+    projectContent() {
+      return this.project.content?.substring(0, 100) + '...';
+    },
+  },
 };
 </script>
 
@@ -13,7 +18,7 @@ export default {
       <div class="card-body card-top">
         <h5 class="card-title">{{ project.title }}</h5>
         <p class="card-text">
-          {{ project.content }}
+          {{ projectContent }}
         </p>
       </div>
     </div>
