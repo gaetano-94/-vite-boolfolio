@@ -15,9 +15,10 @@ export default {
     <div class="container py-3">
       <h1 class="text-center">Elenco dei Progetti</h1>
       <div class="row mt-4">
-        <div class="col col-md-4 g-4" v-for="project in projects"></div>
+        <div class="col col-md-4 g-4" v-for="project in projects">
+          <ProjectCard :project="project" />
+        </div>
       </div>
-      <ProjectCard />
     </div>
   </main>
 </template>
