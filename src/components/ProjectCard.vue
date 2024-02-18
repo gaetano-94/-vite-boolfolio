@@ -14,7 +14,7 @@ export default {
 
 <template>
   <main>
-    <div class="card">
+    <div class="card mb-4">
       <div class="card-body card-top">
         <h5 class="card-title">{{ project.title }}</h5>
         <p class="card-text">
