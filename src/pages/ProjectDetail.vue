@@ -33,15 +33,21 @@ export default {
 </script>
 
 <template>
-  <div class="py-4 container">
-    <h1>{{ project.title }}</h1>
-    <p>{{ project.content }}</p>
-    <h6>
-      <router-link :to="{ name: 'projects' }" class="text-decoration-none"
-        >Torna ai Progetti</router-link
-      >
-    </h6>
+  <div class="container-max">
+    <div class="py-4 container">
+      <h1>{{ project.title }}</h1>
+      <p>{{ project.content }}</p>
+      <h6>
+        <router-link :to="{ name: 'projects' }" class="text-decoration-none"
+          >Torna ai Progetti</router-link
+        >
+      </h6>
+    </div>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.container-max {
+  height: 100vh;
+}
+</style>

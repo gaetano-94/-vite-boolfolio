@@ -5,7 +5,13 @@ export default {
 </script>
 
 <template>
-  <div>home page</div>
+  <div class="container-max">
+    <h1 class="text-center mt-5">Home Page</h1>
+  </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.container-max {
+  height: 100vh;
+}
+</style>
