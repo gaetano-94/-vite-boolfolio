@@ -1,11 +1,15 @@
 <script>
 import ProjectCard from '../components/ProjectCard.vue';
+import AppLoading from '../components/AppLoading.vue';
 import axios from 'axios';
 
 export default {
   name: 'ProjectList',
   data() {
     return {
+      loading: false,
+      currentPage: 1,
+      responseData: {},
       projects: [],
       baseUrl: 'http://127.0.0.1:8000',
       apiUrl: {
@@ -15,18 +19,36 @@ export default {
   },
   components: {
     ProjectCard,
+    AppLoading,
   },
   methods: {
     getProjects() {
-      axios
-        .get(this.baseUrl + this.apiUrl.projects)
-        .then((response) => {
-          console.log(response);
-          this.projects = response.data.data.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      (this.loading = true),
+        axios
+          .get(this.baseUrl + this.apiUrl.projects, {
+            params: {
+              page: this.currentPage,
+            },
+          })
+          .then((response) => {
+            console.log(response);
+            this.responseData = response.data;
+            //this.projects = response.data.results.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+    },
+    nextPage() {
+      this.currentPage++;
+      this.getProjects();
+    },
+    prevPage() {
+      this.currentPage--;
+      this.getProjects();
     },
   },
   created() {
@@ -39,10 +61,36 @@ export default {
   <main class="bg-info">
     <div class="container py-3">
       <h1 class="text-center">Elenco dei Progetti</h1>
-      <div class="row mt-4">
-        <div class="col col-md-4 g-4" v-for="project in projects">
+      <AppLoading v-if="loading" />
+      <div class="row mt-4" v-else>
+        <div
+          class="col col-md-4 g-4"
+          v-for="project in responseData.results?.data"
+        >
           <ProjectCard :project="project" />
         </div>
+        <nav class="my-4">
+          <ul class="d-flex justify-content-between list-unstyled">
+            <li>
+              <button
+                class="btn btn-secondary"
+                @click="prevPage"
+                v-show="responseData.results?.prev_page_url"
+              >
+                Indietro
+              </button>
+            </li>
+            <li>
+              <button
+                class="btn btn-primary"
+                @click="nextPage"
+                v-show="responseData.results?.next_page_url"
+              >
+                Avanti
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </main>
