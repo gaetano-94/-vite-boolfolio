@@ -20,6 +20,11 @@ export default {
         <p class="card-text">
           {{ projectContent }}
         </p>
+        <router-link
+          :to="{ name: 'single-project', params: { slug: project.slug } }"
+          class="btn btn-primary"
+          >Dettagli Progetto</router-link
+        >
       </div>
     </div>
   </main>
