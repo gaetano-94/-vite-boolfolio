@@ -24,26 +24,27 @@ export default {
   },
   methods: {
     getProjects() {
-      (this.loading = true),
-        axios
-          .get(this.store.api.baseUrl + this.store.api.apiUrl.projects, {
-            params: {
-              page: this.currentPage,
-              key: this.store.projects.searchKey,
-            },
-          })
-          .then((response) => {
-            console.log(response);
-            this.responseData = response.data;
-          })
-          .catch((error) => {
-            console.log(error);
-            this.responseData.results.data = [];
-            this.errors = error.response.data.message;
-          })
-          .finally(() => {
-            this.loading = false;
-          });
+      this.errors = null;
+      this.loading = true;
+      axios
+        .get(this.store.api.baseUrl + this.store.api.apiUrl.projects, {
+          params: {
+            page: this.currentPage,
+            key: this.store.projects.searchKey,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          this.responseData = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.responseData.results.data = [];
+          this.errors = error.response.data.message;
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     },
     nextPage() {
       this.currentPage++;
