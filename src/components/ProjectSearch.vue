@@ -26,7 +26,7 @@ export default {
           class="form-control"
           id="search-key"
           placeholder="Cerca nei Progetti"
-          v-model="store.project.searchKey"
+          v-model="store.projects.searchKey"
         />
         <label for="search-key">Cerca nei Progetti</label>
       </div>

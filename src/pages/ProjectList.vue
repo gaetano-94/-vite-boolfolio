@@ -13,6 +13,7 @@ export default {
       loading: false,
       currentPage: 1,
       responseData: {},
+      errors: null,
       projects: [],
     };
   },
@@ -34,10 +35,11 @@ export default {
           .then((response) => {
             console.log(response);
             this.responseData = response.data;
-            //this.projects = response.data.results.data;
           })
           .catch((error) => {
             console.log(error);
+            this.responseData.results.data = [];
+            this.errors = error.response.data.message;
           })
           .finally(() => {
             this.loading = false;
@@ -63,6 +65,9 @@ export default {
     <div class="container py-3">
       <h1 class="text-center">Elenco dei Progetti</h1>
       <ProjectSearch @search-project="getProjects" />
+      <div class="mt-2" v-if="errors">
+        <strong>{{ errors }}</strong>
+      </div>
       <AppLoading v-if="loading" />
       <div class="row mt-4" v-else>
         <div
