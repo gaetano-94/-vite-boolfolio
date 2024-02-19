@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div class="text-center">
-    <h4>Caricamento in corso...</h4>
+    <h4 class="mb-3">Caricamento in corso...</h4>
     <div class="spinner-grow text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
