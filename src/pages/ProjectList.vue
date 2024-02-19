@@ -1,33 +1,34 @@
 <script>
 import ProjectCard from '../components/ProjectCard.vue';
 import AppLoading from '../components/AppLoading.vue';
+import ProjectSearch from '../components/ProjectSearch.vue';
+import store from '../store';
 import axios from 'axios';
 
 export default {
   name: 'ProjectList',
   data() {
     return {
+      store,
       loading: false,
       currentPage: 1,
       responseData: {},
       projects: [],
-      baseUrl: 'http://127.0.0.1:8000',
-      apiUrl: {
-        projects: '/api/projects',
-      },
     };
   },
   components: {
     ProjectCard,
     AppLoading,
+    ProjectSearch,
   },
   methods: {
     getProjects() {
       (this.loading = true),
         axios
-          .get(this.baseUrl + this.apiUrl.projects, {
+          .get(this.store.api.baseUrl + this.store.api.apiUrl.projects, {
             params: {
               page: this.currentPage,
+              key: this.store.projects.searchKey,
             },
           })
           .then((response) => {
@@ -61,6 +62,7 @@ export default {
   <main class="bg-info">
     <div class="container py-3">
       <h1 class="text-center">Elenco dei Progetti</h1>
+      <ProjectSearch @search-project="getProjects" />
       <AppLoading v-if="loading" />
       <div class="row mt-4" v-else>
         <div
