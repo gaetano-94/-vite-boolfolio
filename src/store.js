@@ -7,7 +7,7 @@ const store = reactive({
       projects: '/api/projects',
     },
   },
-  project: {
+  projects: {
     searchKey: null,
   },
 });
