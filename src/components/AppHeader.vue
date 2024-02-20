@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <header class="bg-warning text-white">
+  <header class="bg-warning">
     <div class="container d-flex justify-content-between py-2">
       <div><strong>Logo</strong></div>
       <nav>
@@ -13,21 +13,21 @@ export default {
           <li>
             <router-link
               :to="{ name: 'home' }"
-              class="text-white text-decoration-none"
+              class="text-router text-decoration-none"
               ><strong>Home</strong></router-link
             >
           </li>
           <li>
             <router-link
               :to="{ name: 'projects' }"
-              class="text-white text-decoration-none"
+              class="text-router text-decoration-none"
               ><strong>Projects</strong></router-link
             >
           </li>
           <li>
             <router-link
               :to="{ name: 'about' }"
-              class="text-white text-decoration-none"
+              class="text-router text-decoration-none"
               ><strong>About</strong></router-link
             >
           </li>
@@ -37,4 +37,8 @@ export default {
   </header>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.text-router {
+  color: black;
+}
+</style>
