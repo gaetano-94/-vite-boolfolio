@@ -35,6 +35,5 @@ export default {
 <style scoped lang="scss">
 .card {
   border: 2px solid black;
-  background-color: lightgray;
 }
 </style>
