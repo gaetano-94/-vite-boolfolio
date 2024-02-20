@@ -64,7 +64,7 @@ export default {
 <template>
   <main class="bg-info">
     <div class="container py-3">
-      <h1 class="text-center">Elenco dei Progetti</h1>
+      <h1 class="text-center"><strong>Elenco dei Progetti</strong></h1>
       <ProjectSearch @search-project="getProjects" />
       <div class="mt-2" v-if="errors">
         <strong>{{ errors }}</strong>
@@ -108,9 +108,5 @@ export default {
 h1 {
   color: green;
   text-transform: uppercase;
-}
-.card {
-  border: 2px solid black;
-  background-color: lightgray;
 }
 </style>

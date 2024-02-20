@@ -5,30 +5,30 @@ export default {
 </script>
 
 <template>
-  <header class="bg-primary text-white">
+  <header class="bg-warning text-white">
     <div class="container d-flex justify-content-between py-2">
-      <div>Logo</div>
+      <div><strong>Logo</strong></div>
       <nav>
         <ul class="list-unstyled m-0 p-0 gap-4 d-flex">
           <li>
             <router-link
               :to="{ name: 'home' }"
               class="text-white text-decoration-none"
-              >Home</router-link
+              ><strong>Home</strong></router-link
             >
           </li>
           <li>
             <router-link
               :to="{ name: 'projects' }"
               class="text-white text-decoration-none"
-              >Projects</router-link
+              ><strong>Projects</strong></router-link
             >
           </li>
           <li>
             <router-link
               :to="{ name: 'about' }"
               class="text-white text-decoration-none"
-              >About</router-link
+              ><strong>About</strong></router-link
             >
           </li>
         </ul>

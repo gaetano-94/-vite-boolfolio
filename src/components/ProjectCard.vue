@@ -16,13 +16,15 @@ export default {
   <main>
     <div class="card mb-4">
       <div class="card-body card-top">
-        <h5 class="card-title">{{ project.title }}</h5>
+        <h5 class="card-title">
+          <strong>{{ project.title }}</strong>
+        </h5>
         <p class="card-text">
           {{ projectContent }}
         </p>
         <router-link
           :to="{ name: 'single-project', params: { slug: project.slug } }"
-          class="btn btn-primary"
+          class="btn btn-warning"
           >Dettagli Progetto</router-link
         >
       </div>
@@ -30,4 +32,9 @@ export default {
   </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.card {
+  border: 2px solid black;
+  background-color: lightgray;
+}
+</style>

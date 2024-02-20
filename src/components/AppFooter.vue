@@ -7,8 +7,8 @@ export default {
 <template>
   <footer class="bg-dark text-white">
     <div class="container d-flex justify-content-between py-2">
-      <div>Logo</div>
-      <div>Made by Gaetano Panìco</div>
+      <div><strong>Logo</strong></div>
+      <div><strong>Made by Gaetano Panìco</strong></div>
     </div>
   </footer>
 </template>
